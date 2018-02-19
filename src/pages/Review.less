@@ -4,6 +4,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    background: @gray;
 
     .navbar {
         flex: 0;
@@ -36,8 +37,8 @@
     }
 
     &__main-col {
-        flex: 1;
         display: flex;
+        flex: 1;
     }
 
     &__controls {
@@ -55,6 +56,69 @@
 
     &__diff {
         margin-bottom: 10px;
+    }
+
+    .review-results .col-xs-4 {
+        padding-left: 0;
+    }
+
+    .radio-inline,
+    .radio-inline {
+        color: @gray-lighter;
+        position: relative;
+        padding-left: 32px;
+        cursor: pointer;
+        line-height: 23px;
+        display: inline-block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 300;
+        margin-right: 16px;
+
+        input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            background: @gray-dark;
+            border-radius: 100%;
+        }
+
+        &:after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: @brand-info;
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        // This will be the code as soon as the active radio button has "checked"
+        //&:checked:after {
+        //    content: '';
+        //    width: 8px;
+        //    height: 8px;
+        //    background: @brand-info;
+        //    position: absolute;
+        //    top: 7px;
+        //    left: 7px;
+        //    border-radius: 100%;
+        //    -webkit-transition: all 0.2s ease;
+        //    transition: all 0.2s ease;
+        //}
+
     }
 
     // react-split-pane
@@ -77,5 +141,124 @@
 
     .SplitPane .Pane2 {
         display: flex;
+        background: @gray;
     }
+
+    .nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+        background: @gray-dark;
+        color: @gray-lightish;
+        border: none;
+        border-radius: 0;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 300;
+        padding: 12px 26px;
+        margin-right: 6px;
+
+        &:hover {
+            color: @brand-info;    
+        }
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        background: @gray-darker;
+        color: @brand-info;
+        border: none;
+        border-radius: 0;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 300;
+        padding: 12px 40px;
+        margin-right: 6px;
+    }
+
+    .table-bordered tr,
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid transparent;
+    }
+
+    .table-bordered {
+
+        thead {
+            background: @gray-darker;
+
+            th {
+                color: @gray-lightish;
+                font-weight: 300;
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 1px;            
+            }
+
+            th:nth-child(3),
+            th:nth-child(4) {
+                text-align: right;
+                color: @gray-light;
+            }
+        }
+        
+        td:nth-child(1) {
+            color: @gray;
+            text-align: center;
+        }
+
+        td:nth-child(2) {
+            color: @brand-success;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+        
+        td:nth-child(3),
+        td:nth-child(4) {
+            color: @gray-lightish;
+            text-align: right;
+        }
+
+    }
+
+    .table-bordered:nth-of-type(2) {            
+        td:nth-child(2) {
+            color: @brand-danger;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+    }
+
+    .table-striped > tbody > tr {
+        background: @gray-darker;
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: @gray-dark;
+    }
+
+    .review-results__info.row .text-right.col-xs-4 {
+        color: @gray-lightish;
+        font-weight: 300;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 9px;       
+    }
+
+    .review-results__score {
+        color: @brand-success;
+        font-weight: 400;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0;
+        padding: 10px 36px;
+        background: @gray-dark;
+    }
+
+}
+
+// To remove. It's just an override over the .review-page background in order to display code files in white
+// btw, code blocks shold have monokay...
+.d2h-diff-tbody {
+    background: #fff
 }
